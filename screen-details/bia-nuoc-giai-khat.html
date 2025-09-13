@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bách Hóa Xanh - Demo</title>
+    <link rel="stylesheet" href="screen-styles.css" />
+    <script type="module" src="../firebase-api.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-wrapper">
+        <div class="logo">
+          <img src="../images/logo.jpg" alt="logo" />
+        </div>
+        <div class="search-container">
+          <input type="text" placeholder="Thịt cá giảm đến 37%" />
+          <button class="search-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="21"
+              height="21"
+              fill="currentColor"
+              class="bi bi-cart"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+              />
+            </svg>
+          </button>
+        </div>
+        <button class="cart-btn">Giỏ Hàng</button>
+      </div>
+    </header>
+
+    <div class="wrapper">
+      <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <button class="menu-btn">☰ DANH MỤC SẢN PHẨM</button>
+          <ul>
+            <div class="promo-title">
+              <img
+                src="../images/discount.png"
+                alt="discount"
+                class="discount-icon"
+              />
+              <span>KHUYẾN MÃI SỐC</span>
+            </div>
+
+            <li class="dropdown">
+              Bia, nước giải khát <span class="arrow">›</span>
+              <ul class="dropdown-content">
+                <li>
+                  <a href="screen-details/bia-nuoc-giai-khat.html">Nước ngọt</a>
+                </li>
+                <li>Bia, nước có cồn</li>
+                <li>Rượu</li>
+                <li>Nước trà</li>
+                <li>Nước tăng lực, bù khoáng</li>
+                <li>Nước suối</li>
+                <li>Nước yến</li>
+                <li>Nước ép trái cây</li>
+                <li>Trà sữa</li>
+                <li>Cà phê</li>
+                <li>Trà khô, túi lọc</li>
+                <li>Mật ong</li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              Trứng, sữa <span class="arrow">›</span>
+              <!-- <ul class="dropdown-content">
+              <li>Rau ăn lá</li>
+              <li>Củ quả</li>
+              <li>Nấm tươi</li>
+              <li>Trái cây Việt Nam</li>
+              <li>Trái cây nhập khẩu</li>
+            </ul> -->
+            </li>
+
+            <li class="dropdown">
+              Sữa các loại <span class="arrow">›</span>
+              <!-- <ul class="dropdown-content">
+              <li>Bia lon</li>
+              <li>Nước ngọt</li>
+              <li>Nước suối</li>
+              <li>Nước trái cây</li>
+            </ul> -->
+            </li>
+            <li class="dropdown">
+              Gạo, bột, đồ khô <span class="arrow">›</span>
+              <!-- <ul class="dropdown-content">
+              <li>Bia lon</li>
+              <li>Nước ngọt</li>
+              <li>Nước suối</li>
+              <li>Nước trái cây</li>
+            </ul> -->
+            </li>
+            <li class="dropdown">
+              Dầu ăn, nước chấm, gia vị <span class="arrow">›</span>
+              <!-- <ul class="dropdown-content">
+              <li>Bia lon</li>
+              <li>Nước ngọt</li>
+              <li>Nước suối</li>
+              <li>Nước trái cây</li>
+            </ul> -->
+            </li>
+            <li class="dropdown">
+              Mì, miến, cháo, phở <span class="arrow">›</span>
+              <!-- <ul class="dropdown-content">
+              <li>Bia lon</li>
+              <li>Nước ngọt</li>
+              <li>Nước suối</li>
+              <li>Nước trái cây</li>
+            </ul> -->
+            </li>
+            <li class="dropdown">
+              Kem, sữa chua <span class="arrow">›</span>
+              <!-- <ul class="dropdown-content">
+              <li>Bia lon</li>
+              <li>Nước ngọt</li>
+              <li>Nước suối</li>
+              <li>Nước trái cây</li>
+            </ul> -->
+            </li>
+            <li class="dropdown">
+              Thực phẩm đông lạnh <span class="arrow">›</span>
+              <!-- <ul class="dropdown-content">
+              <li>Bia lon</li>
+              <li>Nước ngọt</li>
+              <li>Nước suối</li>
+              <li>Nước trái cây</li>
+            </ul> -->
+            </li>
+            <li class="dropdown">
+              Bánh kẹo các loại <span class="arrow">›</span>
+              <!-- <ul class="dropdown-content">
+              <li>Bia lon</li>
+              <li>Nước ngọt</li>
+              <li>Nước suối</li>
+              <li>Nước trái cây</li>
+            </ul> -->
+            </li>
+          </ul>
+        </aside>
+
+        <!-- Main -->
+        <main class="main">
+          <div id="product-list" class="product-grid"></div>
+        </main>
+        <script type="module">
+          import { loadProducts } from "../firebase-api.js";
+          loadProducts(); // load dữ liệu NuocNgot
+        </script>
+      </div>
+    </div>
+    <!-- end wrapper -->
+  </body>
+</html>
