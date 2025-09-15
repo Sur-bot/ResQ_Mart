@@ -1,5 +1,5 @@
 // product-detail.js
-import { db } from "../firebase-api.js";
+import { db } from "public/firebase-api.js";
 import {
   doc,
   getDoc,
