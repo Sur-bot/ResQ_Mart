@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bách Hóa Xanh - Demo</title>
     <link rel="stylesheet" href="style.css" />
+    <script type="module" src="../firebase-api.js"></script>
   </head>
   <body>
     <header class="header">
       <div class="header-wrapper">
         <div class="logo">
-          <img src="images/logo.jpg" alt="logo" />
+          <a href="home-screen.html">
+            <img src="images/logo.jpg" alt="logo" />
+          </a>
         </div>
         <div class="search-container">
           <input type="text" placeholder="Thịt cá giảm đến 37%" />
@@ -40,14 +43,19 @@
         <aside class="sidebar">
           <button class="menu-btn">☰ DANH MỤC SẢN PHẨM</button>
           <ul>
-            <li>🌸 KHUYẾN MÃI SỐC</li>
+            <div class="promo-title">
+              <img
+                src="../images/discount.png"
+                alt="discount"
+                class="discount-icon"
+              />
+              <span>KHUYẾN MÃI SỐC</span>
+            </div>
 
             <li class="dropdown">
-              Bia, nước giải khát <span class="arrow">›</span>
+              <span class="dropdown-toggle">Bia, nước giải khát <span class="arrow">›</span></span>
               <ul class="dropdown-content">
-                <li>
-                  <a href="screen-details/bia-nuoc-giai-khat.html">Nước ngọt</a>
-                </li>
+                <li><a href="./screen-details/bia-nuoc-giai-khat.html">Nước ngọt</a></li>
                 <li>Bia, nước có cồn</li>
                 <li>Rượu</li>
                 <li>Nước trà</li>
@@ -56,160 +64,86 @@
                 <li>Nước yến</li>
                 <li>Nước ép trái cây</li>
                 <li>Trà sữa</li>
-                <li>Cà phê</li>
-                <li>Trà khô, túi lọc</li>
-                <li>Mật ong</li>
               </ul>
             </li>
 
-            <li class="dropdown">
-              Trứng, sữa <span class="arrow">›</span>
-              <!-- <ul class="dropdown-content">
-              <li>Rau ăn lá</li>
-              <li>Củ quả</li>
-              <li>Nấm tươi</li>
-              <li>Trái cây Việt Nam</li>
-              <li>Trái cây nhập khẩu</li>
-            </ul> -->
-            </li>
+            <li class="dropdown">Trứng <span class="arrow">›</span></li>
 
-            <li class="dropdown">
-              Sữa các loại <span class="arrow">›</span>
-              <!-- <ul class="dropdown-content">
-              <li>Bia lon</li>
-              <li>Nước ngọt</li>
-              <li>Nước suối</li>
-              <li>Nước trái cây</li>
-            </ul> -->
-            </li>
+            <li class="dropdown">Sữa các loại <span class="arrow">›</span></li>
             <li class="dropdown">
               Gạo, bột, đồ khô <span class="arrow">›</span>
-              <!-- <ul class="dropdown-content">
-              <li>Bia lon</li>
-              <li>Nước ngọt</li>
-              <li>Nước suối</li>
-              <li>Nước trái cây</li>
-            </ul> -->
             </li>
             <li class="dropdown">
-              Dầu ăn, nước chấm, gia vị <span class="arrow">›</span>
-              <!-- <ul class="dropdown-content">
-              <li>Bia lon</li>
-              <li>Nước ngọt</li>
-              <li>Nước suối</li>
-              <li>Nước trái cây</li>
-            </ul> -->
+              Dầu ăn, nước chấm <span class="arrow">›</span>
             </li>
             <li class="dropdown">
               Mì, miến, cháo, phở <span class="arrow">›</span>
-              <!-- <ul class="dropdown-content">
-              <li>Bia lon</li>
-              <li>Nước ngọt</li>
-              <li>Nước suối</li>
-              <li>Nước trái cây</li>
-            </ul> -->
             </li>
-            <li class="dropdown">
-              Kem, sữa chua <span class="arrow">›</span>
-              <!-- <ul class="dropdown-content">
-              <li>Bia lon</li>
-              <li>Nước ngọt</li>
-              <li>Nước suối</li>
-              <li>Nước trái cây</li>
-            </ul> -->
-            </li>
+            <li class="dropdown">Kem, sữa chua <span class="arrow">›</span></li>
+
             <li class="dropdown">
               Thực phẩm đông lạnh <span class="arrow">›</span>
-              <!-- <ul class="dropdown-content">
-              <li>Bia lon</li>
-              <li>Nước ngọt</li>
-              <li>Nước suối</li>
-              <li>Nước trái cây</li>
-            </ul> -->
             </li>
+
             <li class="dropdown">
               Bánh kẹo các loại <span class="arrow">›</span>
-              <!-- <ul class="dropdown-content">
-              <li>Bia lon</li>
-              <li>Nước ngọt</li>
-              <li>Nước suối</li>
-              <li>Nước trái cây</li>
-            </ul> -->
             </li>
           </ul>
         </aside>
 
         <!-- Main -->
         <main class="main">
-          <h2>Đi chợ mỗi ngày</h2>
-          <div class="product-grid">
-            <div class="product-card">
-              <img src="" alt="Cá basa" />
-              <h3>Cá basa cắt khúc 300g + hành lá 100g</h3>
-              <p class="price">
-                25.400đ <span class="old-price">30.000đ</span>
-              </p>
-              <button class="buy-btn">MUA</button>
+          <div class="category-slider">
+            <button class="slide-btn prev">&#10094;</button>
+              <div class="slide-wrapper">
+                <div class="slide-track">
+                  <div class="slide-item"><img src="images/banh-keo.jpg" alt=""><span>Bánh kẹo</span></div>
+                  <div class="slide-item"><img src="images/trung.png" alt=""><span>Trứng </span></div>
+                  <div class="slide-item"><img src="images/sua-hat.png" alt=""><span>Sữa hạt</span></div>
+                  <div class="slide-item"><img src="images/gao-bot.png" alt=""><span>Gạo, bột</span></div>
+                  <div class="slide-item"><img src="images/dau-an.png" alt=""><span>Dầu ăn</span></div>
+                  <div class="slide-item"><img src="images/nuoc-cham.png" alt=""><span>Nước chấm</span></div>
+                  <div class="slide-item"><img src="images/duong.png""><span>Đường</span></div>
+                   <div class="slide-item"><img src="images/sua-chua-an.png"><span>Sữa chua ăn</span></div>
+                </div>
+              </div>
+            <button class="slide-btn next">&#10095;</button>
+          </div>
+          <div class="category-tabs">
+            <h3>ĐI CHỢ MỖI NGÀY</h3>
+              <div class="tabs">
+                <button class="tab active">Sữa, bánh kẹo</button>
+                <button class="tab">Mì, miến</button>
+                <button class="tab">Nước chấm</button>
+                <button class="tab">Đồ ăn nhẹ</button>
+                <button class="tab">Nước ngọt</button>
+              </div>
             </div>
-            <div class="product-card">
-              <img
-                src="images/ca-huong-lam-sach-500g-550g-3-5-con-clone_202508011542509492.jpg"
-                alt="Cá hường"
-              />
-              <h3>Cá hường làm sạch 500g + sả cây 200g</h3>
-              <p class="price">
-                53.500đ <span class="old-price">66.000đ</span>
-              </p>
-              <button class="buy-btn">MUA</button>
-            </div>
-            <div class="product-card">
-              <img
-                src="images/dui-ga-goc-tu-500g-1-3-dui-clone_202507221707211341.jpg"
-                alt="Đùi gà góc tư"
-              />
-              <h3>Đùi gà góc tư 500g + sả cây 200g</h3>
-              <p class="price">
-                42.500đ <span class="old-price">54.000đ</span>
-              </p>
-              <button class="buy-btn">MUA</button>
-            </div>
-            <div class="product-card">
-              <img
-                src="images/ba-roi-heo-cp-300gr-clone_202508071550027257.jpg"
-                alt="Ba rọi heo"
-              />
-              <h3>Ba rọi heo CP 300g + trứng gà tươi 10 quả</h3>
-              <p class="price">
-                77.000đ <span class="old-price">85.000đ</span>
-              </p>
-              <button class="buy-btn">MUA</button>
-            </div>
-            <div class="product-card">
-              <img
-                src="images/ba-roi-heo-cp-300gr-clone_202508071550027257.jpg"
-                alt="Ba rọi heo"
-              />
-              <h3>Ba rọi heo CP 300g + trứng gà tươi 10 quả</h3>
-              <p class="price">
-                77.000đ <span class="old-price">85.000đ</span>
-              </p>
-              <button class="buy-btn">MUA</button>
-            </div>
-            <div class="product-card">
-              <img
-                src="images/ba-roi-heo-cp-300gr-clone_202508071550027257.jpg"
-                alt="Ba rọi heo"
-              />
-              <h3>Ba rọi heo CP 300g + trứng gà tươi 10 quả</h3>
-              <p class="price">
-                77.000đ <span class="old-price">85.000đ</span>
-              </p>
-              <button class="buy-btn">MUA</button>
-            </div>
+          <div id="product-list" class="product-grid">
+            <script type="module">
+              import { loadProducts } from "../firebase-api.js";
+              loadProducts("sua-cac-loai", "sua-tuoi");
+            </script>
           </div>
         </main>
-      </div>
     </div>
     <!-- end wrapper -->
   </body>
+  <script>
+    document.querySelectorAll(".dropdown-toggle").forEach((item) => {
+      item.addEventListener("click", () => {
+        const parent = item.parentElement;
+
+        // Toggle chính nó
+        parent.classList.toggle("active");
+
+        // Nếu muốn chỉ mở 1 dropdown 1 lần thì đóng các dropdown khác:
+        document.querySelectorAll(".dropdown").forEach((drop) => {
+          if (drop !== parent) {
+            drop.classList.remove("active");
+          }
+        });
+      });
+    });
+  </script>
 </html>
