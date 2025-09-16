@@ -34,10 +34,10 @@ export async function loadProducts(category, subCategory) {
 
     // 🔥 Danh sách banner
     const banners = [
-      "images/Banner-01.png",
-      "images/Banner-02.png",
-      "images/Banner-03.png",
-      "images/Banner-04.png",
+      "/images/Banner-03.png",
+      "/images/Banner-02.png",
+      "/images/Banner-01.png",
+      "/images/Banner-04.png",
     ];
 
     let count = 0;

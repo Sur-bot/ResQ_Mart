@@ -18,6 +18,60 @@ body {
   padding-top: 80px; /* chừa chỗ cho header cố định */
 }
 
+/* category-slider */
+.category-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0px 0 20px;
+}
+
+.slide-wrapper {
+  overflow: hidden;
+  flex: 1;
+}
+
+.slide-track {
+  display: flex;
+  transition: transform 0.3s ease;
+  justify-content: space-between;
+}
+
+.slide-item {
+  flex: 0 0 95px; /* chiều rộng mỗi item */
+  text-align: center;
+  padding: 5px;
+}
+
+.slide-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.slide-item span {
+  display: block;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.slide-btn {
+  background: #006400;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 20px;
+  margin: 0 4px;
+  transition: 0.3s;
+}
+
+.slide-btn:hover {
+  background: #004d00;
+}
+
+
 /* Banner full hàng */
 .banner-bnn {
   grid-column: 1 / -1;

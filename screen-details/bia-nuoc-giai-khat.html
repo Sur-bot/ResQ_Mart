@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bách Hóa Xanh - Demo</title>
-    <link rel="stylesheet" href="screen-styles.css" />
+    <link rel="stylesheet" href="./screen-styles.css" />
     <!-- sửa: từ ./firebase-api.js -> ../firebase-api.js -->
     <script type="module" src="../firebase-api.js"></script>
   </head>
@@ -76,6 +76,22 @@
 
         <!-- Main -->
         <main class="main">
+          <div class="category-slider">
+            <button class="slide-btn prev">&#10094;</button>
+              <div class="slide-wrapper">
+                <div class="slide-track">
+                  <div class="slide-item"><img src="/images/banh-keo.jpg" alt=""><span>Bánh kẹo</span></div>
+                  <div class="slide-item"><img src="/images/trung.png" alt=""><span>Trứng </span></div>
+                  <div class="slide-item"><img src="/images/sua-hat.png" alt=""><span>Sữa hạt</span></div>
+                  <div class="slide-item"><img src="/images/gao-bot.png" alt=""><span>Gạo, bột</span></div>
+                  <div class="slide-item"><img src="/images/dau-an.png" alt=""><span>Dầu ăn</span></div>
+                  <div class="slide-item"><img src="/images/nuoc-cham.png" alt=""><span>Nước chấm</span></div>
+                  <div class="slide-item"><img src="/images/duong.png""><span>Đường</span></div>
+                   <div class="slide-item"><img src="/images/sua-chua-an.png"><span>Sữa chua ăn</span></div>
+                </div>
+              </div>
+            <button class="slide-btn next">&#10095;</button>
+          </div>
           <div id="product-list" class="product-grid"></div>
         </main>
         <script type="module">
