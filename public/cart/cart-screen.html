@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ResQ-Mart - Giỏ Hàng</title>
+    <link rel="stylesheet" href="../screen-styles.css" />
+    <link rel="stylesheet" href="../cart/cart-screen.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-wrapper">
+        <div class="logo">
+          <a href="../index.html">
+            <img src="../images/logo.jpg" alt="logo" />
+          </a>
+        </div>
+        <div class="search-container">
+          <input type="text" placeholder="Thịt cá giảm đến 37%" />
+          <button class="search-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="21"
+              height="21"
+              fill="currentColor"
+              class="bi bi-cart"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+              />
+            </svg>
+          </button>
+        </div>
+        <button class="cart-btn">
+          <a href="./cart-screen.html">Giỏ Hàng</a>
+        </button>
+      </div>
+    </header>
+
+    <main class="wrapper">
+      <div class="cart-wrapper">
+        <div class="cart-back">
+          <a href="../index.html">‹ Tiếp tục mua sắm</a>
+          <span>GIỎ HÀNG CỦA BẠN</span>
+        </div>
+
+        <!-- Bảng giỏ hàng -->
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th>Thông tin sản phẩm</th>
+              <th>Đơn giá</th>
+              <th>Số lượng</th>
+              <th>Thành tiền</th>
+            </tr>
+          </thead>
+          <tbody id="cart-list">
+            <!-- render san phẩm từ fb -->
+          </tbody>
+        </table>
+
+        <!-- Tổng tiền + Thanh toán -->
+        <div class="cart-total">
+          <span class="total-label">Tổng tiền:</span>
+          <span id="total-value" class="total-value">0 đ</span>
+          <button class="checkout-btn">Thanh toán</button>
+        </div>
+
+        <!-- Form thanh toán -->
+        <div class="checkout-form" id="checkout-form" style="display: none">
+          <h2>Thông tin thanh toán</h2>
+          <form id="order-form">
+            <label for="name">Họ và tên</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Nhập họ và tên"
+              required
+            />
+
+            <label for="phone">Số điện thoại</label>
+            <input
+              type="tel"
+              id="phone"
+              placeholder="Nhập số điện thoại"
+              required
+            />
+
+            <label for="address">Địa chỉ</label>
+            <input
+              type="text"
+              id="address"
+              placeholder="Nhập địa chỉ giao hàng"
+              required
+            />
+
+            <label for="note">Ghi chú</label>
+            <textarea
+              id="note"
+              placeholder="Ghi chú thêm (không bắt buộc)"
+            ></textarea>
+
+            <button type="submit" class="confirm-btn">Xác nhận đặt hàng</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Modal thông báo -->
+      <div id="success-modal" class="success-modal" style="display: none">
+        <div class="success-content">
+          <div class="success-icon">✔</div>
+          <h2>Thanh toán thành công</h2>
+          <p>
+            Mã số đơn hàng của bạn là
+            <span id="order-id" class="order-id"></span>
+          </p>
+          <p>Xem chi tiết trong <a href="#">đơn hàng của tôi</a>.</p>
+          <p>Thời gian dự kiến giao hàng: 2-3 ngày</p>
+          <button id="continue-btn">Tiếp tục mua hàng</button>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script type="module" src="../cart/cart-screen.js"></script>
+  <script type="module" src="../firebase-api.js"></script>
+</html>

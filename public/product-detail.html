@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chi tiết sản phẩm</title>
+    <link rel="stylesheet" href="./product-detail.css" />
+    <script type="module" src="./product-detail.js"></script>
+    <!-- sửa ./firebase-api.js -> ../firebase-api.js -->
+    <script type="module" src="./firebase-api.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-wrapper">
+        <div class="logo">
+          <a href="./index.html">
+            <!-- sửa /images/logo.jpg -> ../images/logo.jpg -->
+            <img src="./images/logo.jpg" alt="logo" />
+          </a>
+        </div>
+        <div class="search-container">
+          <input type="text" placeholder="Thịt cá giảm đến 37%" />
+          <button class="search-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="21"
+              height="21"
+              fill="currentColor"
+              class="bi bi-cart"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+              />
+            </svg>
+          </button>
+        </div>
+        <button class="cart-btn">
+          <a href="./cart/cart-screen.html">Giỏ Hàng </a>
+        </button>
+      </div>
+    </header>
+
+    <div class="wrapper">
+      <div id="product-detail" class="detail-wrap">
+        <div class="back-text">
+          <a href="javascript:history.back()">‹ Quay lại</a>
+        </div>
+        <div class="detail-image">
+          <img id="pd-img" />
+        </div>
+        <div class="detail-info">
+          <h1 id="pd-desc">Đang tải...</h1>
+          <p class="desc" id="pd-name" hidden></p>
+          <p class="price">
+            <span id="pd-final"></span>
+            <span class="old-price" id="pd-old"></span>
+            <span
+              id="pd-sale"
+              class="sale-badge"
+              style="color: #fff; font-weight: bold"
+            ></span>
+          </p>
+          <p id="pd-date" class="date"></p>
+          <!-- Countdown -->
+          <div class="countdown" id="countdown">Đang tính...</div>
+          <button id="pd-buy" class="buy-btn">MUA NGAY</button>
+        </div>
+      </div>
+
+      <div class="related-section">
+        <div class="related-title">Sản phẩm liên quan</div>
+        <div class="related-wrapper">
+          <button class="arrow left" id="slide-left">‹</button>
+          <div id="related-list" class="related-slider"></div>
+          <button class="arrow right" id="slide-right">›</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

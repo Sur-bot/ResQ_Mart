@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ResQ Mart - Demo</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="./firebase-api.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-wrapper">
+        <div class="logo">
+          <a href="/index.html">
+            <img src="images/logo.jpg" alt="logo" />
+          </a>
+        </div>
+        <div class="search-container">
+          <input type="text" placeholder="Thịt cá giảm đến 37%" />
+          <button class="search-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="21"
+              height="21"
+              fill="currentColor"
+              class="bi bi-cart"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <button class="cart-btn">
+          <a href="./cart/cart-screen.html">Giỏ Hàng 
+          </a></button>
+      </div>
+    </header>
+
+    <div class="wrapper">
+      <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <button class="menu-btn">☰ DANH MỤC SẢN PHẨM</button>
+          <ul>
+            <div class="promo-title">
+              <img
+                src="./images/discount.png"
+                alt="discount"
+                class="discount-icon"
+              />
+              <span>KHUYẾN MÃI SỐC</span>
+            </div>
+
+            <li class="dropdown">
+              <span class="dropdown-toggle">Bia, nước giải khát <span class="arrow">›</span></span>
+              <ul class="dropdown-content">
+                <li><a href="./bia-nuoc-giai-khat.html">Nước ngọt</a></li>
+                <li>Bia, nước có cồn</li>
+                <li>Rượu</li>
+                <li>Nước trà</li>
+                <li>Nước tăng lực, bù khoáng</li>
+                <li>Nước suối</li>
+                <li>Nước yến</li>
+                <li>Nước ép trái cây</li>
+                <li>Trà sữa</li>
+              </ul>
+            </li>
+
+            <li class="dropdown">Trứng <span class="arrow">›</span></li>
+
+            <li class="dropdown">Sữa các loại <span class="arrow">›</span></li>
+            <li class="dropdown">
+              Gạo, bột, đồ khô <span class="arrow">›</span>
+            </li>
+            <li class="dropdown">
+              Dầu ăn, nước chấm <span class="arrow">›</span>
+            </li>
+            <li class="dropdown">
+              Mì, miến, cháo, phở <span class="arrow">›</span>
+            </li>
+            <li class="dropdown">Kem, sữa chua <span class="arrow">›</span></li>
+
+            <li class="dropdown">
+              Thực phẩm đông lạnh <span class="arrow">›</span>
+            </li>
+
+            <li class="dropdown">
+              Bánh kẹo các loại <span class="arrow">›</span>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- Main -->
+        <main class="main">
+          <div class="category-slider">
+            <button class="slide-btn prev">&#10094;</button>
+              <div class="slide-wrapper">
+                <div class="slide-track">
+                  <div class="slide-item"><img src="./images/banh-keo.png" alt=""><span>Bánh kẹo</span></div>
+                  <div class="slide-item"><img src="./images/trung.png" alt=""><span>Trứng </span></div>
+                  <div class="slide-item"><img src="./images/sua-hat.png" alt=""><span>Sữa hạt</span></div>
+                  <div class="slide-item"><img src="./images/gao-bot.png" alt=""><span>Gạo, bột</span></div>
+                  <div class="slide-item"><img src="./images/dau-an.png" alt=""><span>Dầu ăn</span></div>
+                  <div class="slide-item"><img src="./images/nuoc-cham.png" alt=""><span>Nước chấm</span></div>
+                  <div class="slide-item"><img src="./images/duong.png""><span>Đường</span></div>
+                  <div class="slide-item"><img src="./images/sua-chua.png"><span>Sữa chua ăn</span></div>
+                </div>
+              </div>
+            <button class="slide-btn next">&#10095;</button>
+          </div>
+          <div class="category-tabs">
+            <h3>ĐI CHỢ MỖI NGÀY</h3>
+              <div class="tabs">
+                <button class="tab active">Sữa, bánh kẹo</button>
+                <button class="tab">Mì, miến</button>
+                <button class="tab">Nước chấm</button>
+                <button class="tab">Đồ ăn nhẹ</button>
+                <button class="tab">Nước ngọt</button>
+              </div>
+            </div>
+          <div id="product-list" class="product-grid">
+            <script type="module">
+              import { loadProducts } from "./firebase-api.js";
+              loadProducts("sua-cac-loai", "sua-tuoi");
+            </script>
+          </div>
+        </main>
+    </div>
+    <!-- end wrapper -->
+  </body>
+  <script>
+    document.querySelectorAll(".dropdown-toggle").forEach((item) => {
+      item.addEventListener("click", () => {
+        const parent = item.parentElement;
+
+        // Toggle chính nó
+        parent.classList.toggle("active");
+
+        // Nếu muốn chỉ mở 1 dropdown 1 lần thì đóng các dropdown khác:
+        document.querySelectorAll(".dropdown").forEach((drop) => {
+          if (drop !== parent) {
+            drop.classList.remove("active");
+          }
+        });
+      });
+    });
+  </script>
+</html>
