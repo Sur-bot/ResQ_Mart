@@ -33,7 +33,7 @@
           </button>
         </div>
         <button class="cart-btn">
-          <a href="./cart-screen.html">Giỏ Hàng</a>
+          <a href="./cart-screen.html">Giỏ Hàng<span id="cart-count">0</span></a>
         </button>
       </div>
     </header>
@@ -109,14 +109,16 @@
       <!-- Modal thông báo -->
       <div id="success-modal" class="success-modal" style="display: none">
         <div class="success-content">
-          <div class="success-icon">✔</div>
+          <div class="success-icon">
+            <img src="../images/success-icon.png" alt="success" />
+          </div>
           <h2>Thanh toán thành công</h2>
-          <p>
+          <!-- <p>
             Mã số đơn hàng của bạn là
             <span id="order-id" class="order-id"></span>
-          </p>
+          </p> -->
           <p>Xem chi tiết trong <a href="#">đơn hàng của tôi</a>.</p>
-          <p>Thời gian dự kiến giao hàng: 2-3 ngày</p>
+          <!-- <p>Thời gian dự kiến giao hàng: 2-3 ngày</p> --> 
           <button id="continue-btn">Tiếp tục mua hàng</button>
         </div>
       </div>

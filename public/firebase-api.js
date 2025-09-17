@@ -29,6 +29,31 @@ function formatMoney(n) {
   return n.toLocaleString("vi-VN") + " đ";
 }
 
+// ✅ Hàm hiệu ứng bay vào giỏ hàng
+function animateToCart(imgSrc, startX, startY) {
+  const cartBtn = document.querySelector(".cart-btn");
+  if (!cartBtn) return;
+
+  const cartRect = cartBtn.getBoundingClientRect();
+
+  const flyImg = document.createElement("img");
+  flyImg.src = imgSrc;
+  flyImg.className = "fly-img";
+  flyImg.style.left = `${startX}px`;
+  flyImg.style.top = `${startY}px`;
+  document.body.appendChild(flyImg);
+
+  // bắt buộc setTimeout để kích hoạt transition
+  setTimeout(() => {
+    flyImg.style.transform = `translate(${cartRect.left - startX}px, ${cartRect.top - startY}px) scale(0.2)`;
+    flyImg.style.opacity = "0";
+  }, 50);
+
+  flyImg.addEventListener("transitionend", () => {
+    flyImg.remove();
+  });
+}
+
 // ✅ Load danh sách sản phẩm
 export async function loadProducts(category, subCategory) {
   try {
@@ -99,10 +124,14 @@ export async function loadProducts(category, subCategory) {
             anh: data.Anh || "https://placehold.co/200",
           });
 
-          alert("🛒 Đã thêm vào giỏ hàng!");
+          // Cập nhật giỏ hàng ngay
+          await updateCartCount();
+
+          // Hiệu ứng bay vào giỏ hàng
+          const rect = e.target.closest(".product-card").querySelector("img").getBoundingClientRect();
+          animateToCart(data.Anh || "https://placehold.co/200", rect.left, rect.top);
         } catch (err) {
-          console.error("❌ Lỗi thêm vào giỏ:", err);
-          alert("Có lỗi khi thêm vào giỏ hàng!");
+          console.error("❌ Lỗi thêm giỏ hàng:", err);
         }
       });
 
@@ -127,3 +156,25 @@ export async function loadProducts(category, subCategory) {
     console.error("Lỗi load sản phẩm:", err);
   }
 }
+
+// ✅ Hàm cập nhật số lượng giỏ hàng
+export async function updateCartCount() {
+  try {
+    const querySnapshot = await getDocs(collection(db, "gioHang"));
+    let totalQuantity = 0;
+
+    querySnapshot.forEach((docSnap) => {
+      const data = docSnap.data();
+      totalQuantity += data.soLuong || 0;
+    });
+
+    const cartCountEl = document.getElementById("cart-count");
+    if (cartCountEl) {
+      cartCountEl.textContent = totalQuantity;
+    }
+  } catch (err) {
+    console.error("🔥 Lỗi khi cập nhật số lượng giỏ hàng:", err);
+  }
+}
+
+updateCartCount();

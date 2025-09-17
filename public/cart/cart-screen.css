@@ -38,6 +38,17 @@ body {
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
 }
 
+#cart-count {
+  background: red;
+  color: white;
+  font-size: 14px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+}
+
 /* back + tiêu đề */
 .cart-back { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
 .cart-back a { color: #1e5423; text-decoration: none; font-weight: 600; }
@@ -211,7 +222,12 @@ body {
 .success-icon {
   font-size: 50px;
   color: #28a745;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
+}
+
+.success-icon img {
+  width: 100px;
+  height: 100px;
 }
 
 .order-id {
@@ -231,4 +247,14 @@ body {
 
 #continue-btn:hover {
   background: #145214;
+}
+
+.fly-img {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  z-index: 9999;
+  pointer-events: none;
+  transition: transform 0.8s cubic-bezier(0.4, -0.2, 0.2, 1), opacity 0.8s;
 }

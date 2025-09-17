@@ -1,4 +1,4 @@
-import { db } from "../firebase-api.js";
+import { db, updateCartCount } from "../firebase-api.js";
 import {
   collection,
   getDocs,
@@ -96,6 +96,7 @@ async function renderCart() {
     } else if (btn.classList.contains("remove-btn")) {
       await deleteDoc(docRef);
       await renderCart();
+      await updateCartCount();
     }
   };
 }
@@ -184,8 +185,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
       } catch (error) {
-        console.error("Lỗi khi lưu đơn hàng:", error);
-        alert("Có lỗi xảy ra khi lưu đơn hàng. Vui lòng thử lại.");
       }
     });
   }

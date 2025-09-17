@@ -5,6 +5,17 @@
   border-radius: 0px;
 }
 
+#cart-count {
+  background: red;
+  color: white;
+  font-size: 14px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+}
+
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -208,6 +219,7 @@ body {
   font-weight: bolder;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
+   position: relative;
 }
 
 .cart-btn a {
@@ -437,4 +449,14 @@ body {
   color: red;
   margin-top: 5px;
   font-weight: bold;
+}
+
+.fly-img {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  z-index: 9999;
+  pointer-events: none;
+  transition: transform 0.8s cubic-bezier(0.4, -0.2, 0.2, 1), opacity 0.8s;
 }
